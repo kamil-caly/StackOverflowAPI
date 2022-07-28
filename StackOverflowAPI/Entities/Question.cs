@@ -9,5 +9,10 @@
         public DateTime? ModifiedDate { get; set; }
         public decimal Views { get; set; }
         public int Likes { get; set; }
+        public User Author { get; set; }
+        public int AuthorId { get; set; }
+        public List<Comment> Comments { get; set; } = new List<Comment>();
+        public List<Tag> Tags { get; set; }
+
     }
 }

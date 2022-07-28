@@ -12,6 +12,10 @@ namespace StackOverflowAPI.Entities.Configuration
 
             builder.Property(a => a.CreatedDate)
                 .HasDefaultValueSql("getutcdate()");
+
+            builder.HasMany(a => a.Comments)
+                .WithOne(c => c.Answer)
+                .HasForeignKey(c => c.AnswerId);
         }
     }
 }
