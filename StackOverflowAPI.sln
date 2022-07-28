@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackOverflowAPI", "StackOverflowAPI\StackOverflowAPI.csproj", "{2D6A17B8-A5D5-4F7A-83BE-E5CADE36445D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D6A17B8-A5D5-4F7A-83BE-E5CADE36445D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6A17B8-A5D5-4F7A-83BE-E5CADE36445D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6A17B8-A5D5-4F7A-83BE-E5CADE36445D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6A17B8-A5D5-4F7A-83BE-E5CADE36445D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8CEE1E8-6A56-4113-9C1E-0D6D0456E488}
+	EndGlobalSection
+EndGlobal
