@@ -7,7 +7,7 @@ namespace StackOverflowAPI.Entities.Configuration
     {
         public void Configure(EntityTypeBuilder<Tag> builder)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

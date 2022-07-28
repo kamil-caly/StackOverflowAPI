@@ -7,6 +7,9 @@ namespace StackOverflowAPI.Entities.Configuration
     {
         public void Configure(EntityTypeBuilder<Question> builder)
         {
+            builder.Property(q => q.Views)
+                .HasPrecision(10, 2);
+
             builder.Property(q => q.AskedDate)
                 .HasDefaultValueSql("getutcdate()");
 
@@ -16,9 +19,7 @@ namespace StackOverflowAPI.Entities.Configuration
             builder.Property(q => q.ModifiedDate)
                 .ValueGeneratedOnUpdate();
 
-            builder.HasMany(q => q.Comments)
-                .WithOne(c => c.Question)
-                .HasForeignKey(c => c.QuestionId);
+            
 
             builder.HasMany(q => q.Tags)
                 .WithMany(t => t.Questions)

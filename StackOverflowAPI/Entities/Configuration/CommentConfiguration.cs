@@ -9,6 +9,11 @@ namespace StackOverflowAPI.Entities.Configuration
         {
             builder.Property(q => q.CreatedDate)
                .HasDefaultValueSql("getutcdate()");
+
+            builder.HasOne(c => c.Question)
+                .WithMany(a => a.Comments)
+                .HasForeignKey(c => c.QuestionId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
