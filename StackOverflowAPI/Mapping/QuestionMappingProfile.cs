@@ -25,6 +25,10 @@ namespace StackOverflowAPI.Mapping
 
             CreateMap<UserDto, User>();
 
+            CreateMap<Answer, AnswerDto>()
+                .ForMember(m => m.AuthorNick, x => x.MapFrom(a => a.Author.Nick));
+
+            CreateMap<CreateAnswerDto, Answer>();
         }
     }
 }

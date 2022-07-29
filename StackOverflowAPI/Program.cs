@@ -19,6 +19,8 @@ builder.Services.AddDbContext<MyStackContext>(
     );
 
 builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IAnswerService, AnswerService>();
+
 builder.Services.AddScoped<QuestionSeeder>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -44,12 +46,19 @@ if (pendingMigrations.Any())
 }
 
 // questions
-app.MapGet("/question/{id}", ([FromServices]IQuestionService service, [FromRoute] int id) => service.Get(id));
+app.MapGet("/api/question/{id}", ([FromServices]IQuestionService service, [FromRoute] int id) => service.Get(id));
 
 app.MapGet("/api/questions", (IQuestionService service) => service.getAll());
 
-app.MapPost("/api/create{userId}", (IQuestionService service, [FromBody]CreateQuestionDto dto, [FromRoute] int userId) 
+app.MapPost("/api/createQuestion{userId}", (IQuestionService service, [FromBody]CreateQuestionDto dto, [FromRoute] int userId) 
     => service.Create(dto, userId));
+
+// answers
+app.MapGet("/api/answers", (IAnswerService service) => service.getAll());
+
+app.MapPost("/api/createAnswer{userId}", (IAnswerService service, [FromBody] CreateAnswerDto dto, [FromRoute] int userId)
+    => service.Create(dto, userId));
+
 
 
 app.Run();
