@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StackOverflowAPI.Entities;
+using StackOverflowAPI.Models;
 using StackOverflowAPI.Seeder;
 using StackOverflowAPI.Services;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,7 @@ builder.Services.AddDbContext<MyStackContext>(
 
 builder.Services.AddScoped<IQuestionService, QuestionService>();
 builder.Services.AddScoped<QuestionSeeder>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
@@ -40,10 +43,13 @@ if (pendingMigrations.Any())
     dbContext.Database.Migrate();
 }
 
-
-app.MapPost("/question", (IQuestionService service, [FromBody] Question quest) => service.Create(quest));
+// questions
+app.MapGet("/question/{id}", ([FromServices]IQuestionService service, [FromRoute] int id) => service.Get(id));
 
 app.MapGet("/api/questions", (IQuestionService service) => service.getAll());
+
+app.MapPost("/api/create{userId}", (IQuestionService service, [FromBody]CreateQuestionDto dto, [FromRoute] int userId) 
+    => service.Create(dto, userId));
 
 
 app.Run();

@@ -48,6 +48,30 @@ namespace StackOverflowAPI.Seeder
                             Value = "newQuestionTag"
                         }
                     }
+                },
+
+                new Question()
+                {
+                    Title = "Some Question 3",
+                    Message = "how works as in c#?",
+                    Author = new User()
+                    {
+                        Nick = "new User3",
+                        Email = "UserMail@hotmail.com"
+                    },
+
+                    Tags = new List<Tag>()
+                    {
+                        new Tag()
+                        {
+                            Value = "C#"
+                        },
+
+                        new Tag()
+                        {
+                            Value = "as"
+                        }
+                    },
                 }
             };
             return questions;
