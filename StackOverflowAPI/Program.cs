@@ -60,6 +60,24 @@ app.MapPost("/api/createAnswer{userId}", (IAnswerService service, [FromBody] Cre
     => service.Create(dto, userId));
 
 
+// adding likes
+app.MapPut("/api/question/like/{id}", async (MyStackContext db, [FromRoute] int id) =>
+{
+    var question = await db.Questions.FirstAsync(q => q.Id == id);
+
+    question.Likes++;
+    db.SaveChanges();
+    return question;
+});
+
+app.MapPut("/api/answers/like/{id}", async (MyStackContext db, [FromRoute] int id) =>
+{
+    var answer = await db.Answers.FirstAsync(q => q.Id == id);
+
+    answer.Likes++;
+    db.SaveChanges();
+    return answer;
+});
 
 app.Run();
 

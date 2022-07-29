@@ -26,7 +26,8 @@ namespace StackOverflowAPI.Mapping
             CreateMap<UserDto, User>();
 
             CreateMap<Answer, AnswerDto>()
-                .ForMember(m => m.AuthorNick, x => x.MapFrom(a => a.Author.Nick));
+                .ForMember(m => m.AuthorNick, x => x.MapFrom(a => a.Author.Nick))
+                .ForMember(m => m.CommentDtos, x => x.MapFrom(c => c.Comments));
 
             CreateMap<CreateAnswerDto, Answer>();
         }

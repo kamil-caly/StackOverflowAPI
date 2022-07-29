@@ -37,6 +37,7 @@ namespace StackOverflowAPI.Services
             var answers = dbContext
                 .Answers
                 .Include(q => q.Author)
+                .Include(q => q.Comments)
                 .ToList();
                 
 

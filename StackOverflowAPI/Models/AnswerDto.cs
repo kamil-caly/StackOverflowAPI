@@ -7,5 +7,6 @@
         public DateTime CreatedDate { get; set; }
         public int Likes { get; set; }
         public string AuthorNick { get; set; }
+        public List<CommentDto> CommentDtos { get; set; }
     }
 }
